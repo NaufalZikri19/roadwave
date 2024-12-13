@@ -57,17 +57,35 @@
                     </button>
                     <!-- Search -->
                     <div class="relative hidden lg:block">
-                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                            </svg>
-                        </div>
-                        <input type="text" id="search-navbar"
-                            class="block w-full p-1.5 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Cari produk..." />
+                        <form action="/search" method="GET" class="flex items-center">
+                            <input
+                                type="text"
+                                id="search-navbar"
+                                name="query"
+                                class="block w-full p-1.5 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Cari produk..."
+                                required
+                            />
+                            <button
+                                type="submit"
+                                class="absolute inset-y-0 start-0 flex items-center ps-3 text-gray-500 hover:text-gray-700">
+                                <svg
+                                    class="w-4 h-4"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        stroke="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                                    />
+                                </svg>
+                            </button>
+                        </form>
                     </div>
+
                     <!-- Cart -->
                     <button
                         class="inline-flex items-center p-2 text-slate-800 rounded-lg hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-slate-300"

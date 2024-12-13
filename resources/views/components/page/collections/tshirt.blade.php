@@ -1,12 +1,12 @@
 @extends('index')
 @section('content')
 @auth
-  @include('layouts.navigasi.navbar')
+  @include('components.navbar')
 @endauth
 @guest
-  @include('layouts.navigasi.navbarguest')
+  @include('components.navbar-guest')
 @endguest
-@include('layouts.navigasi.sidebar')
+@include('components.sidebar')
 @section('title', 'T-Shirt')
  <!-- Content -->
  <main class="max-w-screen-xl mx-auto mt-24 px-4 mb-7">
@@ -79,10 +79,10 @@
   </div>
 </main>
 @auth
-  @include('layouts.footer.footer')
+@include('components.footer')
 @endauth
 @guest
-  @include('layouts.footer.footerguest')
+@include('components.footer-guest')
 @endguest
-@include('layouts.navigasi.bottombar')
+@include('components.bottombar')
 @endsection
