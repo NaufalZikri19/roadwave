@@ -127,7 +127,7 @@
                                 </button>
                             @else
                                 <button id="pay-button" type="button" disabled
-                                    class="text-slate-100 bg-slate-400 bg-primary focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 flex justify-center items-center flex-auto w-4/5">
+                                    class="text-slate-100 bg-primary focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 flex justify-center items-center flex-auto w-4/5">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor"
                                         class="w-6 h-6 mr-2 group-hover:text-white">

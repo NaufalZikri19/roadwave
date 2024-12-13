@@ -14,10 +14,11 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/home', [HomepageController::class, 'index'])->name('homepage');
     Route::get('/product/{id}', [HomepageController::class, 'show'])->name('show');
+    Route::get('/riwayat', [HomepageController::class, 'history'])->name('history.view');
     Route::post('/order', [OrderController::class, 'store'])->name('order.store');
     Route::post('/midtrans/create-transaction', [MidtransController::class, 'createTransaction'])->name('midtrans.createTransaction');
-    Route::post('/midtrans/notification', [TransactionController::class, 'notification'])->name('midtrans.notification');
 
+    Route::post('/midtrans/callback', [TransactionController::class, 'callback'])->name('midtrans.notification');
     Route::get('/order/detail', [TransactionController::class, 'index'])->name('transaction.view');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
+use Auth;
 
 class HomepageController extends Controller
 {
@@ -17,6 +19,11 @@ class HomepageController extends Controller
     {
         $products = Product::find($id);
         return view('client.page.detail.detail', compact('products'));
+    }
+
+    public function history(){
+        $history =  Order::where('user_id', Auth::user()->id)->get();
+        return view('client.page.history.history', compact('history'));
     }
 
 }

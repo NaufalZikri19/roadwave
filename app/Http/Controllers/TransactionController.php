@@ -27,9 +27,17 @@ class TransactionController extends Controller
 
             $subtotal = $order->subtotal ?: $order->product->price * $order->quantity;
 
+            $existingTransaction = Order::where('user_id', $user->id)
+            ->latest()
+            ->first();
+
+            if ($existingTransaction->status == 'success') {
+                return view('client.page.checkout.checkout', compact('existingTransaction'));
+            }
+
             $params = [
                 'transaction_details' => [
-                    'order_id' => 'ORDER-' . $order->id,
+                    'order_id' => $order->id,
                     'gross_amount' => $subtotal,
                 ],
                 'customer_details' => [
@@ -55,55 +63,20 @@ class TransactionController extends Controller
             }
         }
 
-        public function notification(Request $request)
-        {   
-            // Set Midtrans configuration
-            Config::$serverKey = config('midtrans.server_key');
-            Config::$isProduction = config('midtrans.is_production');
-
-            // Instantiate Midtrans Notification
-            $notification = new Notification();
-
-            // Get the transaction status
-            $status = $notification->transaction_status;
-            $orderId = $notification->order_id;
-
-            // Verify the signature
-            $signatureKey = hash('sha512', $notification->transaction_id . $notification->order_id . $notification->gross_amount . config('midtrans.server_key'));
-
-            if ($signatureKey !== $notification->signature_key) {
-                // Signature does not match
-                return response()->json(['status' => 'failed', 'message' => 'Invalid signature'], 403);
-            }
-
-            // Find the order in your database
-            $order = Order::where('id', str_replace('ORDER-', '', $orderId))->first();
-
-            if ($order) {
-                // Update the order status based on the notification
-                switch ($status) {
-                    case 'capture':
-                        $order->status = 'paid';
-                        break;
-                    case 'pending':
-                        $order->status = 'pending';
-                        break;
-                    case 'expire':
-                        $order->status = 'expired';
-                        break;
-                    case 'cancel':
-                        $order->status = 'cancelled';
-                        break;
-                    default:
-                        // Handle other statuses if necessary
-                        break;
+        public function callback(Request $request){
+            $serverKey = config('midtrans.server_key');
+            $hashed = hash('SHA512', $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+            if ($hashed == $request->signature_key) {
+                if ($request->transaction_status == 'capture') {
+                    $order = Order::where('id', $request->order_id)->first();
+                    $order->status = 'success';
+                    $order->save();
+                } else {
+                    $order = Order::where('id', $request->order_id)->first();
+                    $order->status = 'cancel';
+                    $order->save();
                 }
-
-                // Save the order status
-                $order->save();
+                return redirect()->route('transaction.view')->with('success', 'Transaction status updated successfully!');
             }
-
-            // Return a response to Midtrans
-            return response()->json(['status' => 'success']);
         }
 }

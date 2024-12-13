@@ -20,17 +20,14 @@
                 <th scope="col" class="px-6 py-3">
                     Total Harga
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 flex justify-center">
                     Status
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Aksi
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b">
-                @foreach ($orders as $item)
+            @foreach ($orders as $item)
+                <tr class="bg-white border-b">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $item->id }}
                     </th>
@@ -46,15 +43,14 @@
                     <td class="px-6 py-4">
                         Rp{{ number_format($item->subtotal, 0, ',', '.') }}
                     </td>
-                    <td class="px-2 py-4 flex">
+                    <td class="px-2 py-4 flex justify-center">
                         {{ $item->status }}
                     </td>
-                    <td class="px-6 py-4">
-                        <a href=""
-                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat</a>
-                    </td>
-            </tr>
+                </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="mt-2">
+        {{ $orders->links('vendor.pagination.tailwind') }}
+    </div>
 </div>

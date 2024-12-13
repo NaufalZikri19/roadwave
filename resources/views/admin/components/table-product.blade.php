@@ -35,8 +35,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b">
-                @foreach ($products as $item)
+            @foreach ($products as $item)
+                <tr class="bg-white border-b">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $loop->iteration }}
                     </th>
@@ -50,7 +50,7 @@
                         {{ $item->stock }}
                     </td>
                     <td class="px-6 py-4">
-                        Rp{{ number_format($item->price, 0, ',', '.')}}
+                        Rp{{ number_format($item->price, 0, ',', '.') }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $item->category }}
@@ -69,8 +69,11 @@
                                 class="font-medium text-red-600 hover:underline">Hapus</a>
                         </div>
                     </td>
-            </tr>
+                </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="mt-2">
+        {{ $products->links('vendor.pagination.tailwind') }}
+    </div>
 </div>

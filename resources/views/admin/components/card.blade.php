@@ -36,7 +36,7 @@
             </div>
             <div class="px-4 text-gray-700">
                 <h3 class="text-sm tracking-wider">Selesai</h3>
-                <p class="text-lg font-bold"></p>
+                <p class="text-lg font-bold">{{ $statusCount }}</p>
             </div>
         </div>
         <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
