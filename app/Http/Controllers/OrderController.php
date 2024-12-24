@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -20,8 +21,11 @@ class OrderController extends Controller
             return back()->withErrors(['error' => 'Insufficient stock for this product!']);
         }
 
+        $uuid = Str::uuid();
+
         $order = new Order();
         $order->user_id = auth()->user()->id;
+        $order->transaction_id = $uuid;
         $order->product_id = $product->id;
         $order->quantity = request('quantity');
         $order->subtotal = $product->price * request('quantity');

@@ -58,7 +58,7 @@
                 </button>
                 <!-- Search -->
                 <div class="relative hidden lg:block">
-                    <form action="{{ route('products.search') }}" method="GET" class="w-full mx-auto hidden md:block">
+                    <form action="{{ route('products.search') }}" method="GET">
                         <input
                             type="text"
                             id="search-navbar"
