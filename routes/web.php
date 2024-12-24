@@ -10,6 +10,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\MidtransController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+Route::get('/search', [HomepageController::class, 'search'])->name('search');
 
 Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/home', [HomepageController::class, 'index'])->name('homepage');
@@ -20,6 +21,8 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
 
     Route::post('/midtrans/callback', [TransactionController::class, 'callback'])->name('midtrans.notification');
     Route::get('/order/detail', [TransactionController::class, 'index'])->name('transaction.view');
+
+    Route::get('/home/search', [HomepageController::class, 'search'])->name('products.search');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

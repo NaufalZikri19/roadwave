@@ -1,9 +1,9 @@
 {{-- Sidebar start --}}
 <div id="drawer-navigation"
-    class="fixed top-0 left-0 z-[81] w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-darkmodeOther"
+    class="fixed top-0 left-0 z-[81] w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white"
     tabindex="-1" aria-labelledby="drawer-navigation-label">
     <h5 id="drawer-navigation-label"
-        class="font-extrabold text-mainColor uppercase font-manrope dark:text-gray-400 text-lg">Menu</h5>
+        class="font-extrabold text-mainColor uppercase font-manrope text-lg">Menu</h5>
     <hr class="w-4/5 border rounded-full border-slate-300 outline-none mt-2" />
     <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
@@ -19,32 +19,32 @@
         <ul class="space-y-2 font-medium">
             <li>
                 <a href="/"
-                    class="flex items-center p-2 text-slate-800 rounded-lg dark:text-white hover:bg-slate-200 dark:hover:bg-gray-700 group font-manrope text-base active:bg-mainColor active:text-white">
+                    class="flex items-center p-2 text-slate-800 rounded-lg group font-manrope text-base active:bg-mainColor active:text-white">
                     <span class="ms-3">T-Shirt</span>
                 </a>
             </li>
             <li>
                 <a href="/"
-                    class="flex items-center p-2 text-slate-800 rounded-lg dark:text-white hover:bg-slate-200 dark:hover:bg-gray-700 group font-manrope text-base active:bg-mainColor active:text-white">
+                    class="flex items-center p-2 text-slate-800 rounded-lg group font-manrope text-base active:bg-mainColor active:text-white">
                     <span class="ms-3">Shirt</span>
                 </a>
             </li>
             <li>
                 <a href="/"
-                    class="flex items-center p-2 text-slate-800 rounded-lg dark:text-white hover:bg-slate-200 dark:hover:bg-gray-700 group font-manrope text-base active:bg-mainColor active:text-white">
+                    class="flex items-center p-2 text-slate-800 rounded-lg group font-manrope text-base active:bg-mainColor active:text-white">
                     <span class="ms-3">Pants</span>
                 </a>
             </li>
             <li>
                 <a href="/"
-                    class="flex items-center p-2 text-slate-800 rounded-lg dark:text-white hover:bg-slate-200 dark:hover:bg-gray-700 group font-manrope text-base active:bg-mainColor active:text-white">
+                    class="flex items-center p-2 text-slate-800 rounded-lg group font-manrope text-base active:bg-mainColor active:text-white">
                     <span class="ms-3">Outwear</span>
                 </a>
             </li>
             <hr />
             <li>
                 <a href="#"
-                    class="flex items-center p-2 text-slate-800 rounded-lg dark:text-white hover:bg-slate-200 dark:hover:bg-gray-700 group font-manrope text-base active:bg-mainColor active:text-white">
+                    class="flex items-center p-2 text-slate-800 rounded-lg group font-manrope text-base active:bg-mainColor active:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -55,7 +55,7 @@
             </li>
             <li>
                 <a href="/tentangkami"
-                    class="flex items-center p-2 text-slate-800 rounded-lg dark:text-white hover:bg-slate-200 dark:hover:bg-gray-700 group font-manrope text-base active:bg-mainColor active:text-white">
+                    class="flex items-center p-2 text-slate-800 rounded-lg group font-manrope text-base active:bg-mainColor active:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -66,7 +66,7 @@
             </li>
             <li>
                 <a href="/panduanukuran"
-                    class="flex items-center p-2 text-slate-800 rounded-lg dark:text-white hover:bg-slate-200 dark:hover:bg-gray-700 group font-manrope text-base active:bg-mainColor active:text-white">
+                    class="flex items-center p-2 text-slate-800 rounded-lg group font-manrope text-base active:bg-mainColor active:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round"

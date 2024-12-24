@@ -1,6 +1,6 @@
 {{-- Footer start --}}
 <footer class="bg-white mb-16 sm:mb-0 mt-28">
-    <div class="mx-auto w-full max-w-screen-xl">
+    <div class="mx-auto w-full">
         <div class="flex flex-wrap justify-around gap-[8px] md:px-8 md:justify-between">
             <div class="w-[150px] flex-2">
                 <h2 class="mb-6 text-base font-semibold text-gray-900 uppercase">Information</h2>
