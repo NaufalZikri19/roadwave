@@ -26,4 +26,15 @@ class HomepageController extends Controller
         return view('client.page.history.history', compact('history'));
     }
 
+    public function search(Request $request){
+        $query = $request->input('query');
+        $products = Product::where('name', 'like', '%' . $query . '%')->get();
+
+        if (auth()->check()) {
+            return view('client.auth.search', compact('products', 'query'));
+        } else {
+            return view('client.guest.search', compact('products', 'query'));
+        }
+    }
+
 }
