@@ -24,4 +24,7 @@
         </div>
     @endforeach
 </div>
+<div class="mt-2 px-5">
+    {{ $products->links('vendor.pagination.tailwind') }}
+</div>
 {{-- Display product end --}}
