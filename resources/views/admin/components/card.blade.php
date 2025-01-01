@@ -49,7 +49,7 @@
             </div>
             <div class="px-4 text-gray-700">
                 <h3 class="text-sm tracking-wider">Total Produk</h3>
-                <p class="text-lg font-bold">{{ count($products) }}</p>
+                <p class="text-lg font-bold">{{ $totalProducts }}</p>
             </div>
         </div>
     </div>

@@ -15,8 +15,9 @@ class DashboardController extends Controller
         $orders = Order::paginate(10);
         $statusCount = Order::where('status', 'success')->count();
         $totalOrders = Order::all()->count();
+        $totalProducts = Product::all()->count();
         $revenue = Order::all()->sum('subtotal');
-        return view('admin.dashboard.dashboard', compact('products', 'orders', 'totalOrders', 'revenue', 'statusCount'));
+        return view('admin.dashboard.dashboard', compact('products', 'orders', 'totalOrders', 'revenue', 'statusCount', 'totalProducts'));
     }
 
     public function add(){

@@ -11,7 +11,7 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(8);
         return view('client.index', compact('products'));
     }
 
